@@ -1,0 +1,110 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid" >
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav me-auto mt-2 mt-lg-0" >
+        <li class="nav-item">
+          <a class="nav-link" href="{% url  'eshoppeeapp:allproduct' %}">home </a>
+        </li>
+
+        <li class="nav-item dropdown  {% if 'eshoppeeapp' in request.path %} active {% endif %}" >
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           eshoppee
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'eshoppeeapp:allproduct' %}">all products</a></li>
+              {% for cat in links %}
+            <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.name}}</a></li>
+              {% endfor %}
+
+          </ul>
+        </li>
+        {% if item_count > 0 %}
+        <li class="nav-item">
+          <a class="nav-link"  href="{% url 'mycart:cart_details' %} "><i class="fa fa-shopping-cart"></i>({{item_count}})</a>
+        </li>
+        {% endif %}
+      </div>
+
+      <form class="d-flex" action="{% url 'search_app: search_result' %}" method="get">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--                <li><a class="dropdown-item" href="{% url 'eshoppeeapp:allproduct' %}">All product</a></li>-->
+<!--                    {% for cat in links %}-->
+<!--                <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.name}}</a></li>-->
+<!--                    {% endfor %}-->
+
+
